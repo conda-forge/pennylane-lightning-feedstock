@@ -18,6 +18,9 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - make
   host:
     - libblas
     - liblapacke
@@ -27,6 +30,7 @@ requirements:
     - pybind11
     - python
   run:
+    - ninja
     - numpy
     - pennylane >=0.15
     - python
