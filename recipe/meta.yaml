@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
   sha256: c26a2b4fcce44423734bceb87d8a957305718600c59373be8d47cc2628e4dbda
+  patches:
+    - 0001-Non-ninja.patch
 
 build:
   number: 0
