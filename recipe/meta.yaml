@@ -1,5 +1,5 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.19.1" %}
+{% set version = "0.20.0" %}
 
 
 package:
@@ -8,18 +8,23 @@ package:
 
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 34fe32d6c18b3088e1d23d4b5fd583b194749914beb2cdf2603d19aa7a89ef4a
+  sha256: c26a2b4fcce44423734bceb87d8a957305718600c59373be8d47cc2628e4dbda
   patches:
-    - 0001-Remove-Werror.patch
+    - 0001-Non-ninja.patch
 
 build:
   number: 0
+  skip: True  # [win]
+  # https://github.com/PennyLaneAI/pennylane-lightning/issues/192
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - make
   host:
     - libblas
     - liblapacke
@@ -29,6 +34,7 @@ requirements:
     - pybind11
     - python
   run:
+    - ninja
     - numpy
     - pennylane >=0.15
     - python
