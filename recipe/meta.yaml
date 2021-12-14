@@ -1,5 +1,5 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.19.1" %}
+{% set version = "0.20.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 34fe32d6c18b3088e1d23d4b5fd583b194749914beb2cdf2603d19aa7a89ef4a
+  sha256: c26a2b4fcce44423734bceb87d8a957305718600c59373be8d47cc2628e4dbda
   patches:
     - 0001-Remove-Werror.patch
 
