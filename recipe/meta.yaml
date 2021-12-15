@@ -1,5 +1,5 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.20.0" %}
+{% set version = "0.20.1" %}
 
 
 package:
@@ -8,13 +8,12 @@ package:
 
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c26a2b4fcce44423734bceb87d8a957305718600c59373be8d47cc2628e4dbda
+  sha256: 5ccff62e05c50849d2670dce8011e9f3162aaa41547b5e973fb289cfd6c48714
   patches:
     - 0001-Non-ninja.patch
 
 build:
   number: 0
-  skip: True  # [win]
   # https://github.com/PennyLaneAI/pennylane-lightning/issues/192
   script: {{ PYTHON }} -m pip install . -vv
 
