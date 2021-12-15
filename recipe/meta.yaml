@@ -14,7 +14,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
   # https://github.com/PennyLaneAI/pennylane-lightning/issues/192
   script: {{ PYTHON }} -m pip install . -vv
 
