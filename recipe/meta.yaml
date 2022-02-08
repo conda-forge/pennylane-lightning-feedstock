@@ -21,6 +21,8 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - setuptools
+    # Needed for Windows
     - cmake
     - ninja
     - make
