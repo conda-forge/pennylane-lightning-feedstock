@@ -1,11 +1,11 @@
 c_compiler:
-- vs2017
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- vs2019
 libblas:
 - 3.8 *netlib
 liblapacke:
@@ -18,3 +18,5 @@ python:
 - 3.8.* *_cpython
 target_platform:
 - win-64
+vc:
+- '14'
