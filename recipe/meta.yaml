@@ -15,7 +15,9 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
+  # skip: true  # [win and vc<14]
+  skip: true  #[win]
+  # Kokkos is currently not available
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -28,6 +30,7 @@ requirements:
     - ninja
     - make
   host:
+    - kokkos
     - libblas
     - liblapacke
     - libgomp      # [linux]
