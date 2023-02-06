@@ -1,5 +1,6 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.28.2" %}
+{% set version = "0.28.0" %}
+
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c9b3afed0585681ccaf4df09fb12f2b7f09a8a1ba97a9b979139fe4a24509f31
+  sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
   patches:
     - 0001-Non-ninja.patch
     # Ninja is not recognised by pip check.
@@ -17,7 +18,7 @@ build:
   # skip: true  # [win and vc<14]
   skip: true  # [win]
   # Kokkos is currently not available
-  script: {{ PYTHON }} -m pip install . -vv
+  # script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -29,7 +30,7 @@ requirements:
     - ninja
     - make
   host:
-    - kokkos
+    # - kokkos
     - libblas
     - liblapacke
     - libgomp      # [linux]
@@ -40,7 +41,7 @@ requirements:
   run:
     - ninja
     - numpy
-    - pennylane >=0.19
+    - pennylane >=0.23
     - python
 
 test:
