@@ -1,14 +1,13 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.24.0" %}
-
+{% set version = "0.28.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 38bfabb2f3984461652bff4e931469bf623befdcfeb888803e6685a852e6fa60
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/PennyLane-Lightning-{{ version }}.tar.gz
+  sha256: 06c8575609e3e7f4de5b6d71affec7963fc9cc159ef576ce36b21d511bded374
   patches:
     - 0001-Non-ninja.patch
     # Ninja is not recognised by pip check.
