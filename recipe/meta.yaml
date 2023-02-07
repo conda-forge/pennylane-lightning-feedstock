@@ -7,11 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
-  patches:
-    - 0001-Non-ninja.patch
-    # Ninja is not recognised by pip check.
+  git_url: https://github.com/PennyLaneAI/pennylane-lightning.git
+  git_rev: 69900a635df12d53269c60e026b35a7238e08062
+  # url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
+  # sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
+  # patches:
+  #   - 0001-Non-ninja.patch
+  #   # Ninja is not recognised by pip check.
 
 build:
   number: 0
@@ -19,12 +21,17 @@ build:
   skip: true  # [win]
   # Kokkos is currently not available
   script: {{ PYTHON }} -m pip install . -vv
+  # script: LLVM_ROOT_DIR=`which clang++ | rev | cut -d '/' -f 3- | rev` {{ PYTHON }} -m pip install . -vv  [osx]
+  # script: CMAKE_CXX_COMPILER=x86_64-apple-darwin13.4.0-clang++ CMAKE_LINKER=x86_64-apple-darwin13.4.0-ld {{ PYTHON }} -m pip install . -vv                                      [osx]
+  # script: CMAKE_CXX_COMPILER=$CLANGXX CMAKE_LINKER=$LD {{ PYTHON }} -m pip install . -vv                                      [osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - setuptools
+    - python
+    - pip
     # Needed for Windows
     - cmake
     - ninja
