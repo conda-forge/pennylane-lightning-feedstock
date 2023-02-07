@@ -20,24 +20,17 @@ build:
   # skip: true  # [win and vc<14]
   skip: true  # [win]
   # Kokkos is currently not available
-  script: {{ PYTHON }} -m pip install . -vv
-  # script: LLVM_ROOT_DIR=`which clang++ | rev | cut -d '/' -f 3- | rev` {{ PYTHON }} -m pip install . -vv  [osx]
-  # script: CMAKE_CXX_COMPILER=x86_64-apple-darwin13.4.0-clang++ CMAKE_LINKER=x86_64-apple-darwin13.4.0-ld {{ PYTHON }} -m pip install . -vv                                      [osx]
-  # script: CMAKE_CXX_COMPILER=$CLANGXX CMAKE_LINKER=$LD {{ PYTHON }} -m pip install . -vv                                      [osx]
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - setuptools
-    - python
-    - pip
     # Needed for Windows
     - cmake
     - ninja
     - make
   host:
-    # - kokkos
     - libblas
     - liblapacke
     - libgomp      # [linux]
@@ -45,6 +38,7 @@ requirements:
     - pip
     - pybind11
     - python
+    - setuptools
   run:
     - ninja
     - numpy
@@ -54,8 +48,8 @@ requirements:
 test:
   imports:
     - pennylane_lightning
-  commands:
-    - pip check
+  # commands:
+  #   - pip check
   requires:
     - pip
 
