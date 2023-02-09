@@ -20,7 +20,7 @@ build:
   # skip: true  # [win and vc<14]
   skip: true  # [win]
   # Kokkos is currently not available
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
