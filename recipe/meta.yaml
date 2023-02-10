@@ -31,7 +31,6 @@ requirements:
     - ninja
     - make
   host:
-    - kokkos
     - libblas
     - liblapacke
     - libgomp      # [linux]
