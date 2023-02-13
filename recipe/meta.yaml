@@ -1,4 +1,4 @@
-{% set name = "pennylane-lightning" %}
+{% set name = "pennylane" %}
 {% set version = "0.28.0" %}
 
 
@@ -7,20 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/PennyLaneAI/pennylane-lightning.git
-  git_rev: 69900a635df12d53269c60e026b35a7238e08062
-  # url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  # sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
-  # patches:
-  #   - 0001-Non-ninja.patch
-  #   # Ninja is not recognised by pip check.
+  - git_url: https://github.com/PennyLaneAI/pennylane-lightning.git
+    git_rev: 69900a635df12d53269c60e026b35a7238e08062
+    folder: pennylane-lightning
+    # url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
+    # sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
+    # patches:
+    #   - 0001-Non-ninja.patch
+    #   # Ninja is not recognised by pip check.
+  - url: https://github.com/PennyLaneAI/pennylane/archive/v{{ version }}.tar.gz
+    sha256: 7736a17dc972d918e3a737ce4360d16ac84b9f9f6fca440f167de579c926c114
+    folder: pennylane
 
 build:
   number: 0
-  # skip: true  # [win and vc<14]
   skip: true  # [win]
-  # Kokkos is currently not available
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -31,35 +32,106 @@ requirements:
     - ninja
     - make
   host:
-    - libblas
-    - liblapacke
-    - libgomp      # [linux]
-    - llvm-openmp  # [osx]
-    - pip
-    - pybind11
-    - python
-    - setuptools
+    - python >=3.7
   run:
-    - ninja
-    - numpy
-    - pennylane >=0.23
-    - python
+    - python >=3.7
+    - pennylane-output
+    - pennylane-lightning-output
+# test:
+#   imports:
+#     - pennylane
+#   commands:
+#     - pip check
+#     - pl-device-test --help
+#   requires:
+#     - pip
+#     - pytest
 
-test:
-  imports:
-    - pennylane_lightning
-  # commands:
-  #   - pip check
-  requires:
-    - pip
+outputs:
 
+  - name: pennylane-output
+    version: {{ version }}
+    build:
+      run_exports:
+        - {{ pin_subpackage('pennylane-output', max_pin='x.x') }}
+      entry_points:
+        - pl-device-test=pennylane.devices.tests:cli
+      # noarch: python
+      script: cd "${SRC_DIR}/pennylane" && python -m pip install . -vv
+      number: 0
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+      run:
+        - appdirs
+        - autograd
+        - autoray==0.3.1
+        - cachetools
+        - cvxopt
+        - cvxpy
+        - networkx
+        - numpy <1.24
+        - opt_einsum
+        - python >=3.7
+        - requests
+        - retworkx
+        - scipy
+        - semantic_version >=2.10
+        - toml
+    # test:
+    #   imports:
+    #     - pennylane
+    #   requires:
+    #     - pip
+    #     - pytest
+
+  - name: pennylane-lightning-output
+    version: {{ version }}
+    build:
+      run_exports:
+        - {{ pin_subpackage('pennylane-lightning-output', max_pin='x.x') }}
+      number: 0
+      # skip: true  # [win and vc<14]
+      skip: true  # [win]
+      script: cd "${SRC_DIR}/pennylane-lightning" && python -m pip install . -vv
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        # Needed for Windows
+        - cmake
+        - ninja
+        - make
+      host:
+        - libblas
+        - liblapacke
+        - libgomp      # [linux]
+        - llvm-openmp  # [osx]
+        - pip
+        - pybind11
+        - python >=3.7
+        - setuptools
+      run:
+        - ninja
+        - numpy
+        - python >=3.7
+#     test:
+#       imports:
+#         - pennylane_lightning
+#       requires:
+#         - pip
+        
 about:
-  home: https://github.com/PennyLaneAI/pennylane-lightning
-  summary: PennyLane-Lightning plugin
-  license: Apache-2.0
-  license_file: LICENSE
-  doc_url: https://pennylane-lightning.readthedocs.io/en/latest/
+  home: https://github.com/PennyLaneAI/pennylane
+  summary: PennyLane is a Python quantum machine learning library by Xanadu Inc.
+  license: Apache-2.0 AND MIT
+  # MIT is pennylane/grouping/graph_colouring.py
+  license_file: pennylane/LICENSE
+  doc_url: https://pennylane.readthedocs.io/en/stable/
 
 extra:
   recipe-maintainers:
     - BastianZim
+    - vincentmr
+
