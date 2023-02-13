@@ -37,15 +37,15 @@ requirements:
     - python >=3.7
     - pennylane-output
     - pennylane-lightning-output
-# test:
-#   imports:
-#     - pennylane
-#   commands:
-#     - pip check
-#     - pl-device-test --help
-#   requires:
-#     - pip
-#     - pytest
+test:
+  imports:
+    - pennylane
+  # commands:
+  #   - pip check
+  #   - pl-device-test --help
+  requires:
+    - pip
+    - pytest
 
 outputs:
 
@@ -66,7 +66,7 @@ outputs:
       run:
         - appdirs
         - autograd
-        - autoray==0.3.1
+        - autoray ==0.3.1
         - cachetools
         - cvxopt
         - cvxpy
@@ -134,4 +134,3 @@ extra:
   recipe-maintainers:
     - BastianZim
     - vincentmr
-
