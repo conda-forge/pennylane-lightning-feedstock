@@ -43,9 +43,10 @@ test:
     - pennylane
   commands:
     - pip check
-    - python -m pytest pennylane/tests/test_qubit_device.py pennylane/tests/devices/test_lightning_qubit.py
-    # - python -m pytest --dist worksteal -n auto pennylane/tests --tb=native --no-flaky-report --cov=pennylane --cov-report term-missing --cov-report=html:coverage_html_report
+    - cd "${SRC_DIR}/pennylane" && {{ PYTHON }} -m pytest tests/test_qubit_device.py tests/devices/test_lightning_qubit.py
+    # - cd "${SRC_DIR}/pennylane" && {{ PYTHON }} -m pytest tests --dist worksteal -n auto --tb=native --no-flaky-report --cov=pennylane --cov-report term-missing --cov-report=html:coverage_html_report
   requires:
+    - setuptools <=64.0.2 # version requirement from cvxpy
     - pip
     - pytest
     - pytest-cov
@@ -62,7 +63,7 @@ outputs:
         - {{ pin_subpackage('pennylane-core', max_pin='x.x') }}
       entry_points:
         - pl-device-test=pennylane.devices.tests:cli
-      script: cd "${SRC_DIR}/pennylane" && python -m pip install . -vv
+      script: cd "${SRC_DIR}/pennylane" && {{ PYTHON }} -m pip install . -vv
       number: 0
     requirements:
       host:
@@ -93,7 +94,7 @@ outputs:
       number: 0
       # skip: true  # [win and vc<14]
       skip: true  # [win]
-      script: cd "${SRC_DIR}/pennylane-lightning" && python -m pip install . -vv
+      script: cd "${SRC_DIR}/pennylane-lightning" && {{ PYTHON }} -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
