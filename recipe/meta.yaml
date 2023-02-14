@@ -32,37 +32,42 @@ requirements:
     - ninja
     - make
   host:
-    - python >=3.7
+    - python
   run:
-    - python >=3.7
-    - pennylane-output
-    - pennylane-lightning-output
+    - python
+    - pennylane-core
+    - pennylane-lightning-core
+    
 test:
   imports:
     - pennylane
-  # commands:
-  #   - pip check
-  #   - pl-device-test --help
+  commands:
+    - pip check
+    - python -m pytest pennylane/tests/test_qubit_device.py pennylane/tests/devices/test_lightning_qubit.py
+    # - python -m pytest --dist worksteal -n auto pennylane/tests --tb=native --no-flaky-report --cov=pennylane --cov-report term-missing --cov-report=html:coverage_html_report
   requires:
     - pip
     - pytest
+    - pytest-cov
+    - pytest-mock
+    - pytest-xdist
+    - flaky
 
 outputs:
 
-  - name: pennylane-output
+  - name: pennylane-core
     version: {{ version }}
     build:
       run_exports:
-        - {{ pin_subpackage('pennylane-output', max_pin='x.x') }}
+        - {{ pin_subpackage('pennylane-core', max_pin='x.x') }}
       entry_points:
         - pl-device-test=pennylane.devices.tests:cli
-      # noarch: python
       script: cd "${SRC_DIR}/pennylane" && python -m pip install . -vv
       number: 0
     requirements:
       host:
         - pip
-        - python >=3.7
+        - python
       run:
         - appdirs
         - autograd
@@ -73,24 +78,18 @@ outputs:
         - networkx
         - numpy <1.24
         - opt_einsum
-        - python >=3.7
+        - python
         - requests
         - retworkx
         - scipy
         - semantic_version >=2.10
         - toml
-    # test:
-    #   imports:
-    #     - pennylane
-    #   requires:
-    #     - pip
-    #     - pytest
 
-  - name: pennylane-lightning-output
+  - name: pennylane-lightning-core
     version: {{ version }}
     build:
       run_exports:
-        - {{ pin_subpackage('pennylane-lightning-output', max_pin='x.x') }}
+        - {{ pin_subpackage('pennylane-lightning-core', max_pin='x.x') }}
       number: 0
       # skip: true  # [win and vc<14]
       skip: true  # [win]
@@ -110,18 +109,13 @@ outputs:
         - llvm-openmp  # [osx]
         - pip
         - pybind11
-        - python >=3.7
-        - setuptools
+        - python
+        - setuptools <=64.0.2 # version requirement from cvxpy
       run:
         - ninja
         - numpy
-        - python >=3.7
-#     test:
-#       imports:
-#         - pennylane_lightning
-#       requires:
-#         - pip
-        
+        - python
+
 about:
   home: https://github.com/PennyLaneAI/pennylane
   summary: PennyLane is a Python quantum machine learning library by Xanadu Inc.
