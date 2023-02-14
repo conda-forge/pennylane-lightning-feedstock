@@ -29,6 +29,13 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
+              <td>linux_64_python3.11.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
@@ -47,6 +54,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.11.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -81,8 +95,8 @@ Current build status
 Current release info
 ====================
 
-| Name | Downloads | Version | Platforms |
-| --- | --- | --- | --- |
+| Name                                                                                                                                        | Downloads                                                                                                                                       | Version                                                                                                                                       | Platforms                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--lightning-green.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) |
 
 Installing pennylane-lightning
