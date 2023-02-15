@@ -1,15 +1,15 @@
-About pennylane-lightning
-=========================
+About pennylane
+===============
 
-Home: https://github.com/PennyLaneAI/pennylane-lightning
+Home: https://github.com/PennyLaneAI/pennylane
 
-Package license: Apache-2.0
+Package license: Apache-2.0 AND MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pennylane-lightning-feedstock/blob/main/LICENSE.txt)
 
-Summary: PennyLane-Lightning plugin
+Summary: PennyLane is a Python quantum machine learning library by Xanadu Inc.
 
-Documentation: https://pennylane-lightning.readthedocs.io/en/latest/
+Documentation: https://pennylane.readthedocs.io/en/stable/
 
 Current build status
 ====================
@@ -29,13 +29,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
@@ -54,13 +47,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14635&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pennylane-lightning-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -95,55 +81,57 @@ Current build status
 Current release info
 ====================
 
-| Name                                                                                                                                        | Downloads                                                                                                                                       | Version                                                                                                                                       | Platforms                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--lightning-green.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-lightning.svg)](https://anaconda.org/conda-forge/pennylane-lightning) |
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane-green.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--core-green.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--lightning--core-green.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) |
 
-Installing pennylane-lightning
-==============================
+Installing pennylane
+====================
 
-Installing `pennylane-lightning` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pennylane` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pennylane-lightning` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pennylane, pennylane-core, pennylane-lightning-core` can be installed with `conda`:
 
 ```
-conda install pennylane-lightning
-```
-
-or with `mamba`:
-
-```
-mamba install pennylane-lightning
-```
-
-It is possible to list all of the versions of `pennylane-lightning` available on your platform with `conda`:
-
-```
-conda search pennylane-lightning --channel conda-forge
+conda install pennylane pennylane-core pennylane-lightning-core
 ```
 
 or with `mamba`:
 
 ```
-mamba search pennylane-lightning --channel conda-forge
+mamba install pennylane pennylane-core pennylane-lightning-core
+```
+
+It is possible to list all of the versions of `pennylane` available on your platform with `conda`:
+
+```
+conda search pennylane --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search pennylane --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pennylane-lightning --channel conda-forge
+mamba repoquery search pennylane --channel conda-forge
 
-# List packages depending on `pennylane-lightning`:
-mamba repoquery whoneeds pennylane-lightning --channel conda-forge
+# List packages depending on `pennylane`:
+mamba repoquery whoneeds pennylane --channel conda-forge
 
-# List dependencies of `pennylane-lightning`:
-mamba repoquery depends pennylane-lightning --channel conda-forge
+# List dependencies of `pennylane`:
+mamba repoquery depends pennylane --channel conda-forge
 ```
 
 
@@ -188,17 +176,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating pennylane-lightning-feedstock
-======================================
+Updating pennylane-feedstock
+============================
 
-If you would like to improve the pennylane-lightning recipe or build a new
+If you would like to improve the pennylane recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/pennylane-lightning-feedstock are
+Note that all branches in the conda-forge/pennylane-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
@@ -214,4 +202,5 @@ Feedstock Maintainers
 =====================
 
 * [@BastianZim](https://github.com/BastianZim/)
+* [@vincentmr](https://github.com/vincentmr/)
 
