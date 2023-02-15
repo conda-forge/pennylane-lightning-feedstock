@@ -34,7 +34,6 @@ requirements:
   host:
     - python
   run:
-    - python
     - pennylane-core
     - pennylane-lightning-core
     
