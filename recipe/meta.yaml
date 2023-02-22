@@ -50,7 +50,10 @@ test:
 
   requires:
     - setuptools <=64.0.2 # version requirement from cvxpy
+    - flaky
     - pip
+    - pytest
+    - pytest-mock
 
 outputs:
 
@@ -127,4 +130,3 @@ extra:
   recipe-maintainers:
     - vincentmr
     - BastianZim
-    - vincentmr
