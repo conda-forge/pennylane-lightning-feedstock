@@ -42,16 +42,15 @@ test:
     - pennylane
   commands:
     - pip check
-    - cd "${SRC_DIR}/../work/pennylane" && {{ PYTHON }} -m pytest tests/test_qubit_device.py tests/devices/test_lightning_qubit.py
-    - cd "${SRC_DIR}/../work/pennylane" && {{ PYTHON }} -m pytest tests --dist worksteal -n auto --tb=native --no-flaky-report --cov=pennylane --cov-report term-missing --cov-report=html:coverage_html_report
+    - pl-device-test --help
+    - pl-device-test --device default.qubit --shots None --skip-ops
+    - pl-device-test --device default.qubit --shots 10000 --skip-ops
+    - pl-device-test --device lightning.qubit --shots None --skip-ops
+    - pl-device-test --device lightning.qubit --shots 10000 --skip-ops
+
   requires:
     - setuptools <=64.0.2 # version requirement from cvxpy
     - pip
-    - pytest
-    - pytest-cov
-    - pytest-mock
-    - pytest-xdist
-    - flaky
 
 outputs:
 
