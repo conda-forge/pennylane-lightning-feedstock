@@ -46,8 +46,8 @@ test:
     - pl-device-test --help
     - pl-device-test --device default.qubit --shots None --skip-ops
     - pl-device-test --device default.qubit --shots 10000 --skip-ops
-    # - pl-device-test --device lightning.qubit --shots None --skip-ops
-    # - pl-device-test --device lightning.qubit --shots 10000 --skip-ops
+    - pl-device-test --device lightning.qubit --shots None --skip-ops
+    - pl-device-test --device lightning.qubit --shots 10000 --skip-ops
 
   requires:
     - setuptools <=64.0.2 # version requirement from cvxpy
