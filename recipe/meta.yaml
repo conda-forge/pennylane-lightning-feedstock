@@ -8,7 +8,7 @@ package:
 
 source:
   - git_url: https://github.com/PennyLaneAI/pennylane-lightning.git
-    git_branch: v0.29.0_rc0
+    git_tag: v0.29.0
     folder: pennylane-lightning
     # url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
     # sha256: f5849c2affb5fb57aca20feb40ca829d171b07db2304fde0a37c2332c5b09e18
@@ -16,7 +16,7 @@ source:
     #   - 0001-Non-ninja.patch
     #   # Ninja is not recognised by pip check.
   - git_url: https://github.com/PennyLaneAI/pennylane.git
-    git_branch: v0.29.0-rc0
+    git_tag: v0.29.0
     folder: pennylane
 
 build:
