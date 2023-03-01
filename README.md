@@ -83,9 +83,9 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane-green.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane.svg)](https://anaconda.org/conda-forge/pennylane) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--core-green.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-core.svg)](https://anaconda.org/conda-forge/pennylane-core) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--lightning--core-green.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-lightning-core.svg)](https://anaconda.org/conda-forge/pennylane-lightning-core) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pennylane--meta-green.svg)](https://anaconda.org/conda-forge/pennylane-meta) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pennylane-meta.svg)](https://anaconda.org/conda-forge/pennylane-meta) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pennylane-meta.svg)](https://anaconda.org/conda-forge/pennylane-meta) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pennylane-meta.svg)](https://anaconda.org/conda-forge/pennylane-meta) |
 
 Installing pennylane
 ====================
@@ -97,41 +97,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pennylane, pennylane-core, pennylane-lightning-core` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pennylane-core, pennylane-lightning-core, pennylane-meta` can be installed with `conda`:
 
 ```
-conda install pennylane pennylane-core pennylane-lightning-core
-```
-
-or with `mamba`:
-
-```
-mamba install pennylane pennylane-core pennylane-lightning-core
-```
-
-It is possible to list all of the versions of `pennylane` available on your platform with `conda`:
-
-```
-conda search pennylane --channel conda-forge
+conda install pennylane-core pennylane-lightning-core pennylane-meta
 ```
 
 or with `mamba`:
 
 ```
-mamba search pennylane --channel conda-forge
+mamba install pennylane-core pennylane-lightning-core pennylane-meta
+```
+
+It is possible to list all of the versions of `pennylane-core` available on your platform with `conda`:
+
+```
+conda search pennylane-core --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search pennylane-core --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pennylane --channel conda-forge
+mamba repoquery search pennylane-core --channel conda-forge
 
-# List packages depending on `pennylane`:
-mamba repoquery whoneeds pennylane --channel conda-forge
+# List packages depending on `pennylane-core`:
+mamba repoquery whoneeds pennylane-core --channel conda-forge
 
-# List dependencies of `pennylane`:
-mamba repoquery depends pennylane --channel conda-forge
+# List dependencies of `pennylane-core`:
+mamba repoquery depends pennylane-core --channel conda-forge
 ```
 
 
