@@ -60,7 +60,7 @@ outputs:
         - {{ pin_subpackage('pennylane-core', max_pin='x.x') }}
       entry_points:
         - pl-device-test=pennylane.devices.tests:cli
-      script: cd "${SRC_DIR}/pennylane" && {{ PYTHON }} -m pip install . -vv
+      script: cd "${SRC_DIR}/pennylane" && {{ PYTHON }} -m pip install . --no-deps -vv
       number: 0
     requirements:
       host:
@@ -91,7 +91,7 @@ outputs:
       number: 0
       # skip: true  # [win and vc<14]
       skip: true  # [win]
-      script: cd "${SRC_DIR}/pennylane-lightning" && {{ PYTHON }} -m pip install . -vv
+      script: cd "${SRC_DIR}/pennylane-lightning" && {{ PYTHON }} -m pip install . --no-deps -vv
     requirements:
       build:
         - {{ compiler('c') }}
