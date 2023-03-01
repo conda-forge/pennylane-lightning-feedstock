@@ -3,7 +3,7 @@
 
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-meta
   version: {{ version }}
 
 source:
@@ -126,3 +126,4 @@ extra:
   recipe-maintainers:
     - vincentmr
     - BastianZim
+  feedstock-name: pennylane
