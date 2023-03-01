@@ -8,9 +8,11 @@ package:
 
 source:
   - url: https://github.com/PennyLaneAI/pennylane/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: e59e042174abd8f1596034d3f4dd113b24d06e4aadb5f2e5828fa3411fabf0df
     folder: pennylane
   - url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
     folder: pennylane-lightning
+    sha256: da9912f0286d1a54051cc19cf8bdbdcd732795636274c95f376db72a88e52d85
 
 build:
   number: 0
