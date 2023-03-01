@@ -3,7 +3,7 @@
 
 
 package:
-  name: {{ name|lower }}-meta
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
