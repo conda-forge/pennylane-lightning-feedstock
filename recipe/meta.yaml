@@ -7,11 +7,9 @@ package:
   version: {{ version }}
 
 source:
-  - git_url: https://github.com/PennyLaneAI/pennylane.git
-    git_tag: v{{ version }}
+  - url: https://github.com/PennyLaneAI/pennylane/archive/refs/tags/v{{ version }}.tar.gz
     folder: pennylane
-  - git_url: https://github.com/PennyLaneAI/pennylane-lightning.git
-    git_tag: v{{ version }}
+  - url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
     folder: pennylane-lightning
 
 build:
