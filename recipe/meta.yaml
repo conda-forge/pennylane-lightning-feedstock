@@ -14,7 +14,7 @@ source:
     # Ninja is not recognised by pip check.
 
 build:
-  number: 0
+  number: 1
   # skip: true  # [win and vc<14]
   skip: true  # [win]
   # Kokkos is currently not available
