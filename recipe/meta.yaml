@@ -1,5 +1,5 @@
 {% set name = "pennylane-lightning" %}
-{% set version = "0.24.0" %}
+{% set version = "0.43.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/PennyLaneAI/pennylane-lightning/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 38bfabb2f3984461652bff4e931469bf623befdcfeb888803e6685a852e6fa60
+  sha256: bb08ba36c5effdeaf68008620d84c5400b3066bdb6558a1a4f599089d615d867
   patches:
     - 0001-Non-ninja.patch
     # Ninja is not recognised by pip check.
@@ -23,6 +23,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - setuptools
     # Needed for Windows
@@ -39,9 +40,10 @@ requirements:
     - pybind11
     - python
   run:
+    - scipy-openblas32 >=0.3.26
     - ninja
     - numpy
-    - pennylane >=0.19
+    - pennylane >=0.41
     - python
 
 test:
